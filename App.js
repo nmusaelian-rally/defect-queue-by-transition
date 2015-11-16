@@ -103,7 +103,8 @@ Ext.define('CustomApp', {
                 '_ProjectHierarchy':this.projectOid,
                 'State':'Submitted',
                 'Tags': this.tagOid,
-                '_ValidFrom':{'$lte':interval.to},'_ValidTo':{'$gt':interval.to}
+                //'_ValidFrom':{'$lte':interval.to},'_ValidTo':{'$gt':interval.to}
+                '_ValidFrom':{'$lte':interval.from},'_ValidTo':{'$gt':interval.from}
                 
             };
         }
@@ -113,7 +114,8 @@ Ext.define('CustomApp', {
                 'State':'Open',
                 'Project': this.projectOid,
                 'Tags': this.tagOid,
-                '_ValidFrom':{'$lte':interval.to},'_ValidTo':{'$gt':interval.to}
+                //'_ValidFrom':{'$lte':interval.to},'_ValidTo':{'$gt':interval.to}
+                '_ValidFrom':{'$lte':interval.from},'_ValidTo':{'$gt':interval.from}
             };
         }
         else if (queueType === 'Assigned - not In-Progress') {
@@ -122,7 +124,8 @@ Ext.define('CustomApp', {
                 'ScheduleState':{'$lt':'In-Progress'},
                 'Project': {'$ne':this.projectOid},
                 'Tags': this.tagOid,
-                '_ValidFrom':{'$lte':interval.to},'_ValidTo':{'$gt':interval.to}
+                //'_ValidFrom':{'$lte':interval.to},'_ValidTo':{'$gt':interval.to}
+                '_ValidFrom':{'$lte':interval.from},'_ValidTo':{'$gt':interval.from}
             };
         }
         else if (queueType === 'In-Progress - not Accepted') {
@@ -131,7 +134,8 @@ Ext.define('CustomApp', {
                 'ScheduleState':'In-Progress',
                 //'Project': {'$ne':this.projectOid},
                 'Tags': this.tagOid,
-                '_ValidFrom':{'$lte':interval.to},'_ValidTo':{'$gt':interval.to}
+                //'_ValidFrom':{'$lte':interval.to},'_ValidTo':{'$gt':interval.to}
+                '_ValidFrom':{'$lte':interval.from},'_ValidTo':{'$gt':interval.from}
             };
         }
         return find;
