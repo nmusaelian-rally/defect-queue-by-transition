@@ -1,4 +1,13 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Defect Workflow Queue</title>
 
+    <script type="text/javascript" src="/apps/2.0/sdk.js"></script>
+
+    <script type="text/javascript">
+        Rally.onReady(function () {
+                
 Ext.define('CustomApp', {
     extend: 'Rally.app.App',
     componentCls: 'app',
@@ -179,3 +188,25 @@ Ext.define('CustomApp', {
     }
 });
 
+
+
+            Rally.launchApp('CustomApp', {
+                name:"Defect Workflow Queue",
+	            parentRepos:""
+            });
+
+        });
+    </script>
+
+
+
+    <style type="text/css">
+        .app {
+  /* Add app styles here */
+}
+
+    </style>
+</head>
+<body>
+</body>
+</html>
